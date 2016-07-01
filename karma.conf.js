@@ -8,8 +8,12 @@ module.exports = function (config)
 
 		// frameworks to use
 		frameworks: ['jasmine', 'requirejs'],
-
-
+    coverageReporter: {
+      type: 'html',
+      dir: 'coverage/',
+      file: 'coverage.txt'
+    },
+reporters: ['dots','html','growl','progress', 'coverage'],
 		// list of files / patterns to load in the browser
 		files: [
 			'bower_components/angular/angular.js',
@@ -28,7 +32,10 @@ module.exports = function (config)
 
 		// test results reporter to use
 		// possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
-		reporters: ['progress'],
+		// reporters: ['progress'],
+		preprocessors: {
+      		'{app/scripts/**/*.js,test/unit/**/*Spec.js}': ['coverage']
+    	},
 
 
 		// web server port
@@ -56,8 +63,8 @@ module.exports = function (config)
 		// - Safari (only Mac)
 		// - PhantomJS
 		// - IE (only Windows)
-		browsers: ['PhantomJS'],
-
+		// browsers: ['PhantomJS'],
+        browsers: ['Chrome'],
 
 		// If browser does not capture in given timeout [ms], kill it
 		captureTimeout: 60000,
@@ -65,7 +72,15 @@ module.exports = function (config)
 		plugins: [
 			'karma-requirejs',
 			'karma-jasmine',
-			'karma-phantomjs-launcher'
+			'karma-phantomjs-launcher',
+      		'karma-chrome-launcher',
+      		'karma-firefox-launcher',
+      		'karma-coverage',
+      		'karma-ng-html2js-preprocessor',
+      		'karma-spec-reporter',
+      		'karma-html-reporter',
+      		'karma-growl',
+      		'karma-growl-reporter'
 		],
 
 		// Continuous Integration mode

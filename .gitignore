@@ -168,5 +168,7 @@ pip-log.txt
 .idea/
 node_modules/
 bower_components/
+coverage/
+karma_html/
 logs/
 .sass-cache/
