@@ -1,25 +1,17 @@
-define([], function()
-{
-    return function(dependencies)
+define([], function () {
+  return function (dependencies) {
+    var definition =
     {
-        var definition =
-        {
-            resolver: ['$q','$rootScope', function($q, $rootScope)
-            {
-                var deferred = $q.defer();
-
-                require(dependencies, function()
-                {
-                    $rootScope.$apply(function()
-                    {
-                        deferred.resolve();
-                    });
-                });
-
-                return deferred.promise;
-            }]
-        }
-
-        return definition;
+      resolver: ['$q', '$rootScope', function ($q, $rootScope) {
+        var deferred = $q.defer();
+        require(dependencies, function () {
+          $rootScope.$apply(function () {
+            deferred.resolve();
+          });
+        });
+        return deferred.promise;
+      }]
     }
+    return definition;
+  }
 });
