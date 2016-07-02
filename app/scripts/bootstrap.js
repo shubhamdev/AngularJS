@@ -11,6 +11,8 @@ require.config({
     HomeViewCtrl: 'modules/home/controllers/HomeViewController',
     AboutViewCtrl: 'modules/home/controllers/AboutViewController',
     ContactViewCtrl: 'modules/home/controllers/ContactViewController',
+    LoginCtrl: 'modules/admin/controllers/loginController',
+    contentCtrl:'modules/content/controllers/contentController',
 
     'app-color':'directives/app-color'
   },
